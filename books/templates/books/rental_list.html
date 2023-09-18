@@ -4,15 +4,17 @@
         <h1 class="my-4">대출 도서 목록</h1>
         <div class="border">
             {% if rent_list %}
-                {% for book in rent_list %}
+                {% for rent in rent_list %}
                     <div class="border m-2 p-2">
-                        <p class="m-0">제목: {{ book.book_id }}</p>
-                        <p class="m-0">대출한 날짜: {{ book.rental_date }}</p>
+                        <p class="m-0">제목: {{ rent.book_id }}</p>
+                        <p class="m-0">대출한 날짜: {{ rent.rental_date }}</p>
+                        <a href="{% url 'return_book' rent.pk %}" style="text-decoration: none;">반납</a>
                     </div>
                 {% endfor %}
             {% else %}
                 <p class="m-0 py-2 text-center">대출한 도서가 없습니다.</p>
             {% endif %}
         </div>
+        <button class="my-2"><a href="{% url 'home' %}" style="text-decoration: none; color: black">Home page</a></button>
     </div>
 {% endblock %}

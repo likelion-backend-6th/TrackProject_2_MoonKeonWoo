@@ -36,6 +36,15 @@ def rent_book(request, pk):
         book.save()
     return HttpResponseRedirect('/books/my_rentals')
 
+def return_book(request, pk):
+    rental = get_object_or_404(Rental, pk=pk)
+    book = get_object_or_404(Book, pk=pk)
+    rental.delete()
+    book.stock += 1
+    book.save()
+
+    return HttpResponseRedirect('/books/my_rentals')
+
 class RentalListView(ListView):
     model = Rental
     template_name = 'books/rental_list.html'
