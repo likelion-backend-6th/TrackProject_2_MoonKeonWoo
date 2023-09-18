@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="my-4">
+        <h3 class="mb-4">도서 목록</h3>
+        <ul class="list-group">
+            {% for obj in object_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'book_detail' obj.id %}" style="text-decoration: none; color: black;">
+                        <div class="row text-center">
+                            <p class="col m-0">{{ obj.title }}</p>
+                            <p class="col m-0">{{ obj.author }}</p>
+                            <p class="col m-0">{{ obj.publisher }}</p>
+                            <p class="col m-0">{{ obj.stock }}</p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

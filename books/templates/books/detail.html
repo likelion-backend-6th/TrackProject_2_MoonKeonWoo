@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <h2 class="my-4">도서 정보</h2>
+        <p>제목: {{ object.title }}</p>
+        <p>저자: {{ object.author }}</p>
+        <p>출판사: {{ object.publisher }}</p>
+        <p>대출 가능: {{ object.stock }}</p>
+    </div>
+    {% if user.is_authenticated %}
+        <button ><a href="{% url 'rent_book' object.id %}" style="text-decoration: none; color: black">대출</a></button>
+    {% endif %}
+{% endblock%}
