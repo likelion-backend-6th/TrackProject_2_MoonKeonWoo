@@ -20,3 +20,16 @@ class Rental(models.Model):
 
     def __str__(self):
         return f'{self.book_id}-{self.user_id}'
+
+class Review(models.Model):
+    RATING_CHOICES = (
+        (1, '1점'),
+        (2, '2점'),
+        (3, '3점'),
+        (4, '4점'),
+        (5, '5점')
+    )
+    rating = models.IntegerField(choices=RATING_CHOICES)
+    description = models.TextField(null=True, default='')
+    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
