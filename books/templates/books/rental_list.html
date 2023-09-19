@@ -5,7 +5,7 @@
         <div class="border">
             {% if rent_list %}
                 {% for rent in rent_list %}
-                    <div class="border m-2 p-2">
+                    <div class="border m-2 p-2" onclick="">
                         <p class="m-0">제목: {{ rent.book_id }}</p>
                         <p class="m-0">대출한 날짜: {{ rent.rental_date }}</p>
                         <a href="{% url 'return_book' rent.pk %}" style="text-decoration: none;">반납</a>

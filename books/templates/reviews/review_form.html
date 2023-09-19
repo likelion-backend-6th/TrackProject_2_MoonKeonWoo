@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+{#        try1#}
+{#        <div class="my-4">#}
+{#            <label>User</label>#}
+{#            <p>{{ form.user_id }}</p>#}
+{#        </div>#}
+{#        <div class="my-4">#}
+{#            <label>Book</label>#}
+{#            <p>{{ form.book_id }}</p>#}
+{#        </div>#}
+          {# try3 #}
+{#        <input name="book" value="{{ book_id }}">#}
+{#        <input name="user" value="{{ user_id }}">#}
+        <div class="my-4">
+            <label>평점</label>
+            <p>{{ form.rating }}</p>
+        </div>
+        <div class="mt-4">
+            <label>리뷰</label>
+            <p>{{ form.description }}</p>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

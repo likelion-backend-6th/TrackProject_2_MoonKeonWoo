@@ -9,5 +9,6 @@
     </div>
     {% if user.is_authenticated %}
         <button ><a href="{% url 'rent_book' object.id %}" style="text-decoration: none; color: black">대출</a></button>
+        <button ><a href="{% url 'review_book' object.id %}" style="text-decoration: none; color: black">리뷰 작성</a></button>
     {% endif %}
 {% endblock%}
